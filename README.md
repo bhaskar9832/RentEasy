@@ -36,8 +36,7 @@ This project is currently under active development as a Final Year B.Tech Projec
 
 ## Landing Page
 
-<img src="./assets/Untitled design (1).png" alt="RentEasy UI" width="100%" />
-
+<img src="./Untitled%20design%20(1).png" alt="RentEasy UI" width="100%" />
 ---
 
 # ✨ Features
