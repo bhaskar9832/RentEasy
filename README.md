@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![RentEasy Banner](./assets/renteasy-ui.png)
+<img src="./Renteasy.png" alt="RentEasy Logo" width="320" />
 
 ### Find PGs, hostels, and mess facilities near your college.
 
@@ -239,14 +239,6 @@ RentEasy aims to solve these issues with a transparent and student-focused platf
 # 📖 Documentation
 
 Project documentation, ER diagrams, system design, and reports will be added inside the `/docs` folder.
-
----
-
-# 📸 Screenshots
-
-## Homepage UI
-
-<img src="./assets/renteasy-ui.png" alt="Homepage UI" width="100%" />
 
 ---
 
