@@ -138,44 +138,207 @@ The system is designed for scalability and future expansion across multiple citi
 # 📂 Proposed Folder Structure
 
 ```bash
-RentEasy/
+renteasy/
 │
-├── client/                     # React Frontend
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── layouts/
-│   │   ├── hooks/
-│   │   ├── context/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── App.jsx
-│   └── package.json
-│
-├── server/                     # Backend API
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── app.js
-│   └── package.json
-│
-├── mobile-app/                 # Flutter App
-│
-├── docs/                       # Documentation
-│
-├── assets/                     # Screenshots & UI images
-│   └── renteasy-ui.png
-│
-├── docker-compose.yml
 ├── README.md
-└── .env
+├── .gitignore
+├── .env.example
+├── docker-compose.yml
+│
+├── docs/
+│   ├── synopsis.pdf
+│   ├── api-documentation.md
+│   ├── database-design.md
+│   └── system-design.md
+│
+├── frontend/
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── index.html
+│   ├── .env.example
+│   │
+│   └── src/
+│       ├── main.jsx
+│       ├── App.jsx
+│       │
+│       ├── assets/
+│       │   ├── images/
+│       │   └── icons/
+│       │
+│       ├── components/
+│       │   ├── common/
+│       │   │   ├── Navbar.jsx
+│       │   │   ├── Footer.jsx
+│       │   │   ├── Button.jsx
+│       │   │   ├── Input.jsx
+│       │   │   ├── Modal.jsx
+│       │   │   └── Loader.jsx
+│       │   │
+│       │   ├── listing/
+│       │   │   ├── ListingCard.jsx
+│       │   │   ├── ListingFilter.jsx
+│       │   │   ├── ListingGallery.jsx
+│       │   │   └── AmenityBadge.jsx
+│       │   │
+│       │   ├── booking/
+│       │   │   ├── BookingForm.jsx
+│       │   │   └── BookingSummary.jsx
+│       │   │
+│       │   └── dashboard/
+│       │       ├── Sidebar.jsx
+│       │       └── StatsCard.jsx
+│       │
+│       ├── pages/
+│       │   ├── Home.jsx
+│       │   ├── Login.jsx
+│       │   ├── Register.jsx
+│       │   ├── SearchResults.jsx
+│       │   ├── ListingDetails.jsx
+│       │   ├── StudentDashboard.jsx
+│       │   ├── OwnerDashboard.jsx
+│       │   ├── AddListing.jsx
+│       │   ├── ManageListings.jsx
+│       │   ├── MyBookings.jsx
+│       │   └── AdminDashboard.jsx
+│       │
+│       ├── routes/
+│       │   ├── AppRoutes.jsx
+│       │   └── ProtectedRoute.jsx
+│       │
+│       ├── services/
+│       │   ├── api.js
+│       │   ├── authService.js
+│       │   ├── listingService.js
+│       │   ├── bookingService.js
+│       │   ├── paymentService.js
+│       │   └── uploadService.js
+│       │
+│       ├── context/
+│       │   ├── AuthContext.jsx
+│       │   └── AppContext.jsx
+│       │
+│       ├── hooks/
+│       │   ├── useAuth.js
+│       │   ├── useListings.js
+│       │   └── useBookings.js
+│       │
+│       ├── utils/
+│       │   ├── constants.js
+│       │   ├── validators.js
+│       │   ├── formatDate.js
+│       │   ├── formatCurrency.js
+│       │   └── errorHandler.js
+│       │
+│       └── styles/
+│           ├── index.css
+│           └── responsive.css
+│
+├── backend/
+│   ├── package.json
+│   ├── server.js
+│   ├── app.js
+│   ├── .env.example
+│   │
+│   └── src/
+│       ├── config/
+│       │   ├── db.js
+│       │   ├── redis.js
+│       │   ├── cloudinary.js
+│       │   ├── razorpay.js
+│       │   └── jwt.js
+│       │
+│       ├── modules/
+│       │   ├── auth/
+│       │   │   ├── auth.controller.js
+│       │   │   ├── auth.service.js
+│       │   │   ├── auth.routes.js
+│       │   │   ├── auth.validator.js
+│       │   │   └── auth.model.js
+│       │   │
+│       │   ├── users/
+│       │   │   ├── user.controller.js
+│       │   │   ├── user.service.js
+│       │   │   ├── user.routes.js
+│       │   │   └── user.model.js
+│       │   │
+│       │   ├── listings/
+│       │   │   ├── listing.controller.js
+│       │   │   ├── listing.service.js
+│       │   │   ├── listing.routes.js
+│       │   │   ├── listing.validator.js
+│       │   │   └── listing.model.js
+│       │   │
+│       │   ├── rooms/
+│       │   │   ├── room.controller.js
+│       │   │   ├── room.service.js
+│       │   │   ├── room.routes.js
+│       │   │   └── room.model.js
+│       │   │
+│       │   ├── bookings/
+│       │   │   ├── booking.controller.js
+│       │   │   ├── booking.service.js
+│       │   │   ├── booking.routes.js
+│       │   │   ├── booking.validator.js
+│       │   │   └── booking.model.js
+│       │   │
+│       │   ├── payments/
+│       │   │   ├── payment.controller.js
+│       │   │   ├── payment.service.js
+│       │   │   ├── payment.routes.js
+│       │   │   └── payment.model.js
+│       │   │
+│       │   ├── reviews/
+│       │   │   ├── review.controller.js
+│       │   │   ├── review.service.js
+│       │   │   ├── review.routes.js
+│       │   │   └── review.model.js
+│       │   │
+│       │   └── uploads/
+│       │       ├── upload.controller.js
+│       │       ├── upload.service.js
+│       │       └── upload.routes.js
+│       │
+│       ├── middlewares/
+│       │   ├── authMiddleware.js
+│       │   ├── roleMiddleware.js
+│       │   ├── errorMiddleware.js
+│       │   ├── validateMiddleware.js
+│       │   ├── uploadMiddleware.js
+│       │   └── rateLimitMiddleware.js
+│       │
+│       ├── utils/
+│       │   ├── ApiError.js
+│       │   ├── ApiResponse.js
+│       │   ├── asyncHandler.js
+│       │   ├── generateToken.js
+│       │   ├── hashPassword.js
+│       │   └── logger.js
+│       │
+│       ├── database/
+│       │   ├── migrations/
+│       │   ├── seeds/
+│       │   └── schema.sql
+│       │
+│       └── tests/
+│           ├── unit/
+│           ├── integration/
+│           └── e2e/
+│
+├── nginx/
+│   └── nginx.conf
+│
+├── deployment/
+│   ├── Dockerfile.frontend
+│   ├── Dockerfile.backend
+│   ├── docker-compose.prod.yml
+│   ├── render.yaml
+│   ├── railway.json
+│   └── vercel.json
+│
+└── scripts/
+    ├── setup.sh
+    ├── seed-db.sh
+    └── reset-db.sh
 ```
 
 ---
