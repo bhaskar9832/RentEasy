@@ -340,7 +340,12 @@ renteasy/
     ├── seed-db.sh
     └── reset-db.sh
 ```
+# 📂 Another Folder Structure
 
+```bash
+
+
+```
 ---
 
 # ⚙️ Installation & Setup
