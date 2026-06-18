@@ -149,196 +149,150 @@ renteasy/
 │   ├── synopsis.pdf
 │   ├── api-documentation.md
 │   ├── database-design.md
-│   └── system-design.md
+│   ├── system-design.md
+│   └── architecture-diagram.png
 │
-├── frontend/
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── index.html
-│   ├── .env.example
+├── apps/
 │   │
-│   └── src/
-│       ├── main.jsx
-│       ├── App.jsx
-│       │
-│       ├── assets/
-│       │   ├── images/
-│       │   └── icons/
-│       │
-│       ├── components/
-│       │   ├── common/
-│       │   │   ├── Navbar.jsx
-│       │   │   ├── Footer.jsx
-│       │   │   ├── Button.jsx
-│       │   │   ├── Input.jsx
-│       │   │   ├── Modal.jsx
-│       │   │   └── Loader.jsx
-│       │   │
-│       │   ├── listing/
-│       │   │   ├── ListingCard.jsx
-│       │   │   ├── ListingFilter.jsx
-│       │   │   ├── ListingGallery.jsx
-│       │   │   └── AmenityBadge.jsx
-│       │   │
-│       │   ├── booking/
-│       │   │   ├── BookingForm.jsx
-│       │   │   └── BookingSummary.jsx
-│       │   │
-│       │   └── dashboard/
-│       │       ├── Sidebar.jsx
-│       │       └── StatsCard.jsx
-│       │
-│       ├── pages/
-│       │   ├── Home.jsx
-│       │   ├── Login.jsx
-│       │   ├── Register.jsx
-│       │   ├── SearchResults.jsx
-│       │   ├── ListingDetails.jsx
-│       │   ├── StudentDashboard.jsx
-│       │   ├── OwnerDashboard.jsx
-│       │   ├── AddListing.jsx
-│       │   ├── ManageListings.jsx
-│       │   ├── MyBookings.jsx
-│       │   └── AdminDashboard.jsx
-│       │
-│       ├── routes/
-│       │   ├── AppRoutes.jsx
-│       │   └── ProtectedRoute.jsx
-│       │
-│       ├── services/
-│       │   ├── api.js
-│       │   ├── authService.js
-│       │   ├── listingService.js
-│       │   ├── bookingService.js
-│       │   ├── paymentService.js
-│       │   └── uploadService.js
-│       │
-│       ├── context/
-│       │   ├── AuthContext.jsx
-│       │   └── AppContext.jsx
-│       │
-│       ├── hooks/
-│       │   ├── useAuth.js
-│       │   ├── useListings.js
-│       │   └── useBookings.js
-│       │
-│       ├── utils/
-│       │   ├── constants.js
-│       │   ├── validators.js
-│       │   ├── formatDate.js
-│       │   ├── formatCurrency.js
-│       │   └── errorHandler.js
-│       │
-│       └── styles/
-│           ├── index.css
-│           └── responsive.css
-│
-├── backend/
-│   ├── package.json
-│   ├── server.js
-│   ├── app.js
-│   ├── .env.example
+│   ├── web/
+│   │   ├── public/
+│   │   ├── src/
+│   │   │   ├── assets/
+│   │   │   ├── api/
+│   │   │   │   ├── auth.js
+│   │   │   │   ├── users.js
+│   │   │   │   ├── listings.js
+│   │   │   │   ├── bookings.js
+│   │   │   │   └── search.js
+│   │   │   │
+│   │   │   ├── components/
+│   │   │   │   ├── common/
+│   │   │   │   ├── listing/
+│   │   │   │   ├── booking/
+│   │   │   │   └── dashboard/
+│   │   │   │
+│   │   │   ├── context/
+│   │   │   ├── hooks/
+│   │   │   ├── pages/
+│   │   │   │   ├── Home.jsx
+│   │   │   │   ├── Login.jsx
+│   │   │   │   ├── Register.jsx
+│   │   │   │   ├── Search.jsx
+│   │   │   │   ├── ListingPage.jsx
+│   │   │   │   ├── BookingPage.jsx
+│   │   │   │   ├── Profile.jsx
+│   │   │   │   ├── OwnerPortal.jsx
+│   │   │   │   └── AdminDashboard.jsx
+│   │   │   │
+│   │   │   ├── routes/
+│   │   │   ├── styles/
+│   │   │   ├── utils/
+│   │   │   ├── App.jsx
+│   │   │   └── main.jsx
+│   │   │
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   └── .env
 │   │
-│   └── src/
-│       ├── config/
-│       │   ├── db.js
-│       │   ├── redis.js
-│       │   ├── cloudinary.js
-│       │   ├── razorpay.js
-│       │   └── jwt.js
-│       │
-│       ├── modules/
-│       │   ├── auth/
-│       │   │   ├── auth.controller.js
-│       │   │   ├── auth.service.js
-│       │   │   ├── auth.routes.js
-│       │   │   ├── auth.validator.js
-│       │   │   └── auth.model.js
-│       │   │
-│       │   ├── users/
-│       │   │   ├── user.controller.js
-│       │   │   ├── user.service.js
-│       │   │   ├── user.routes.js
-│       │   │   └── user.model.js
-│       │   │
-│       │   ├── listings/
-│       │   │   ├── listing.controller.js
-│       │   │   ├── listing.service.js
-│       │   │   ├── listing.routes.js
-│       │   │   ├── listing.validator.js
-│       │   │   └── listing.model.js
-│       │   │
-│       │   ├── rooms/
-│       │   │   ├── room.controller.js
-│       │   │   ├── room.service.js
-│       │   │   ├── room.routes.js
-│       │   │   └── room.model.js
-│       │   │
-│       │   ├── bookings/
-│       │   │   ├── booking.controller.js
-│       │   │   ├── booking.service.js
-│       │   │   ├── booking.routes.js
-│       │   │   ├── booking.validator.js
-│       │   │   └── booking.model.js
-│       │   │
-│       │   ├── payments/
-│       │   │   ├── payment.controller.js
-│       │   │   ├── payment.service.js
-│       │   │   ├── payment.routes.js
-│       │   │   └── payment.model.js
-│       │   │
-│       │   ├── reviews/
-│       │   │   ├── review.controller.js
-│       │   │   ├── review.service.js
-│       │   │   ├── review.routes.js
-│       │   │   └── review.model.js
-│       │   │
-│       │   └── uploads/
-│       │       ├── upload.controller.js
-│       │       ├── upload.service.js
-│       │       └── upload.routes.js
-│       │
-│       ├── middlewares/
-│       │   ├── authMiddleware.js
-│       │   ├── roleMiddleware.js
-│       │   ├── errorMiddleware.js
-│       │   ├── validateMiddleware.js
-│       │   ├── uploadMiddleware.js
-│       │   └── rateLimitMiddleware.js
-│       │
-│       ├── utils/
-│       │   ├── ApiError.js
-│       │   ├── ApiResponse.js
-│       │   ├── asyncHandler.js
-│       │   ├── generateToken.js
-│       │   ├── hashPassword.js
-│       │   └── logger.js
-│       │
-│       ├── database/
-│       │   ├── migrations/
-│       │   ├── seeds/
-│       │   └── schema.sql
-│       │
-│       └── tests/
-│           ├── unit/
-│           ├── integration/
-│           └── e2e/
+│   └── mobile/
 │
-├── nginx/
-│   └── nginx.conf
+├── services/
+│   │
+│   ├── api-gateway/
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── middleware/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── auth-service/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   ├── middleware/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── user-service/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   ├── config/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── catalog-service/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── booking-service/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── search-service/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   ├── notification-service/
+│   │   ├── src/
+│   │   │   ├── services/
+│   │   │   ├── consumers/
+│   │   │   └── server.js
+│   │   ├── package.json
+│   │   └── .env
+│   │
+│   └── payment-service/
+│       ├── src/
+│       │   ├── controllers/
+│       │   ├── routes/
+│       │   ├── services/
+│       │   └── server.js
+│       ├── package.json
+│       └── .env
 │
-├── deployment/
-│   ├── Dockerfile.frontend
-│   ├── Dockerfile.backend
-│   ├── docker-compose.prod.yml
-│   ├── render.yaml
-│   ├── railway.json
-│   └── vercel.json
+├── shared/
+│   ├── constants/
+│   ├── middleware/
+│   ├── utils/
+│   └── validation/
 │
-└── scripts/
-    ├── setup.sh
-    ├── seed-db.sh
-    └── reset-db.sh
+├── database/
+│   ├── migrations/
+│   ├── schemas/
+│   └── seeds/
+│
+├── infra/
+│   ├── docker/
+│   ├── k8s/
+│   ├── terraform/
+│   └── monitoring/
+│
+└── .github/
+└── workflows/
+├── ci.yml
+├── cd.yml
+└── deploy.yml
+
 ```
 # 📂 Another Folder Structure
 
